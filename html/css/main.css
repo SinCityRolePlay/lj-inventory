@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-.bg-button { background: #646475!important; }
+.bg-button { background: #756464!important; }
 .text-check { color: rgba(255, 255, 255, 0.8)!important; }
-.text-checkbox { color: #0fffd5!important; }
+.text-checkbox { color: #ff0f0f!important; }
 .q-checkbox__svg { color: #000!important; }
 div#q-loading-bar { display: none!important; }
 ::-webkit-scrollbar { display: none!important; }
-.q-card { background: rgb(35, 34, 56)!important; }
+.q-card { background: rgb(74, 26, 26)!important; }
 p { margin: 0 !important; }
 .q-btn { align-items: center!important; }
 .text-h6 { color: #fff; }
@@ -68,25 +68,25 @@ input[type=number]::-webkit-outer-spin-button {
     width: 134.6%;
     margin-left: 0%;
     margin-top: 6.3%;
-    background-color: rgb(39 39 49);
+    background-color: rgb(74, 26, 26);
 }
 
 #progressbar-other {
     width: 134.8%;
     margin-left: -1.5%;
     margin-top: 6.3%;
-    background-color: rgb(39 39 49);
+    background-color: rgb(74, 26, 26);
 }
 
 .pro {
-    background: linear-gradient(to right, #0fffd5, #0b9a82 500px);
+    background: linear-gradient(to right, #ff0f0f, #9a0b0b 500px);
     height: 10px;
     max-width: 100%;
     transition: width 1s, background-color 1s;
 }
 
 .pro1 {
-    background: linear-gradient(to right, #0fffd5, #0b9a82 500px);
+    background: linear-gradient(to right, #ff0f0f, #9a0b0b 500px);
     height: 10px;
     max-width: 100%;
     transition: width 1s, background-color 1s;
@@ -143,7 +143,7 @@ body {
     max-width: 41%;
     height: 75%;
     max-height: 81%;
-    background: rgb(35 34 56 / 80%);
+    background: rgba(56, 34, 34, 0.8);
 }
 
 .player-inventory {
@@ -170,7 +170,7 @@ body {
     max-width: 41%;
     height: 75%;
     max-height: 81%;
-    background: rgb(35 34 56 / 80%);
+    background: rgba(56, 34, 34, 0.8);
 }
 
 .other-inventory {
@@ -214,7 +214,7 @@ body {
     padding-bottom: 15px;
     height: auto;
     margin: 16% auto;
-    background: rgb(35 34 56 / 80%);
+    background: rgba(56, 34, 34, 0.8);
     right: 0px;
     width: 11%;
     left: 3vh;
@@ -236,13 +236,13 @@ body {
     height: 13vh;
     float: left;
     border: 1px solid rgba(255, 255, 255, 0.02);
-    background-color: rgb(102 102 113 / 30%) !important;
+    background-color: rgba(113, 102, 102, 0.3) !important;
     margin: 2px;
     transition: opacity 0.2s ease 0s;
 }
 
 .item-slot:hover {
-    background-color: rgb(48 48 56 / 30%) !important;
+    background-color: rgba(56, 48, 48, 0.3) !important;
 }
 
 .inv-option-item {
@@ -332,7 +332,7 @@ body {
 }
 
 .inv-option-item:hover {
-    background-color: #5c5c6c;
+    background-color: #6a2020;
 }
 
 .btn-combine {
@@ -341,7 +341,7 @@ body {
     width: auto;
     top: 0px;
     left: 0px;
-    background-color: #646475 !important;
+    background-color: #7d1616 !important;
     text-align: center;
     line-height: 48px;
     font-size: 1.2vh;
@@ -431,7 +431,7 @@ body {
     position: absolute;
     width: 0%;
     height: 150%;
-    background-color: #0fffd5;
+    background-color: #ff0f0f;
     z-index: 1;
 }
 
@@ -559,7 +559,7 @@ body {
 }
 
 .ply-iteminfo-container {
-    background: rgba(35, 34, 56, 0.90);
+    background: rgba(56, 34, 34, 0.9);
     border-radius: 3px;
     color: rgba(220, 220, 220, 1);
     border: 1px solid rgba(255, 255, 255, 0.02);
@@ -635,7 +635,7 @@ body {
     margin-right: 1vh;
     width: 10vh;
     height: 11vh;
-    background: rgba(35, 34, 56, 0.95);
+    background: rgba(56, 34, 34, 0.95);
 }
 
 #itembox-action {
@@ -660,7 +660,7 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: #0fffd5;
+    background-color: #ff0f0f;
     height: 0.3vh;
 }
 
@@ -700,7 +700,7 @@ body {
     height: 11vh;
     float: left;
     margin-left: 20px;
-    background: rgba(35, 34, 56, 0.95);
+    background: rgba(56, 34, 34, 0.95);
 }
 
 #requiredItem-action {
@@ -717,7 +717,7 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: #0fffd5;
+    background-color: #ff0f0f;
     height: 0.3vh;
 }
 
@@ -780,7 +780,7 @@ body {
     margin: 3px;
     transition: opacity 0.2s;
     opacity: 1.0;
-    background: rgba(35, 34, 56, 0.95);
+    background: rgba(56, 34, 34, 0.95);
     z-index: 9999;
 }
 
@@ -850,7 +850,7 @@ body {
 
 .ammo-container {
     position: absolute;
-    background-color: rgba(20, 18, 32, 0.2);
+    background-color: rgba(32, 18, 18, 0.2);
     width: 3.25%;
     height: 44.16%;
     top: 26%;
@@ -970,7 +970,7 @@ body {
 .weapon-attachments-container-detail-durability-total {
     height: 100%;
     width: 50%;
-    background-color: #0fffd5;
+    background-color: #ff0f0f;
 }
 
 .weapon-attachments-container-image {
@@ -1078,7 +1078,7 @@ body {
 }
 
 .weapon-attachments-remove-hover {
-    background-color: #0fffd5;
+    background-color: #ff0f0f;
 }
 
 .weapon-dragging-class {

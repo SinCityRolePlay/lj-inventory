@@ -589,6 +589,20 @@ RegisterNetEvent('inventory:server:CraftAttachment', function(itemName, itemCost
 	end
 end)
 
+RegisterServerEvent('inventory:server:CraftWeapons', function(itemName, itemCosts, amount, toSlot, points)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	local amount = tonumber(amount)
+	if itemName ~= nil and itemCosts ~= nil then
+		for k, v in pairs(itemCosts) do
+			Player.Functions.RemoveItem(k, (v*amount))
+		end
+		Player.Functions.AddItem(itemName, amount, toSlot)
+		Player.Functions.SetMetaData("weaponcraftingrep", Player.PlayerData.metadata["weaponcraftingrep"]+(points*amount))
+		TriggerClientEvent("inventory:client:UpdatePlayerInventory", src, false)
+	end
+end)
+
 RegisterNetEvent('inventory:server:SetIsOpenState', function(IsOpen, type, id)
 	if not IsOpen then
 		if type == "stash" then
@@ -759,6 +773,12 @@ RegisterNetEvent('inventory:server:OpenInventory', function(name, id, other)
 				secondInv.slots = #other.items
 			elseif name == "attachment_crafting" then
 				secondInv.name = "attachment_crafting"
+				secondInv.label = other.label
+				secondInv.maxweight = 900000
+				secondInv.inventory = other.items
+				secondInv.slots = #other.items
+			elseif name == "weapon_crafting" then
+				secondInv.name = "weapon_crafting"
 				secondInv.label = other.label
 				secondInv.maxweight = 900000
 				secondInv.inventory = other.items
@@ -1348,6 +1368,14 @@ RegisterNetEvent('inventory:server:SetInventoryData', function(fromInventory, to
 			TriggerClientEvent("inventory:client:UpdatePlayerInventory", src, true)
 			TriggerClientEvent('QBCore:Notify', src, "You don't have the right items..", "error")
 		end
+	elseif fromInventory == "weapon_crafting" then
+		local itemData = Config.WeaponCrafting["items"][fromSlot]
+		if hasCraftItems(src, itemData.costs, fromAmount) then
+			TriggerClientEvent("inventory:client:CraftWeapons", src, itemData.name, itemData.costs, fromAmount, toSlot, itemData.points)
+		else
+			TriggerClientEvent("inventory:client:UpdatePlayerInventory", src, true)
+			TriggerClientEvent('QBCore:Notify', src, "You don't have the right items..", "error")
+		end
 	else
 		-- drop
 		fromInventory = tonumber(fromInventory)
@@ -1614,6 +1642,113 @@ QBCore.Functions.CreateUseableItem("id_card", function(source, item)
 						item.info.birthdate,
 						gender,
 						item.info.nationality
+					}
+				}
+			)
+		end
+	end
+end)
+
+QBCore.Functions.CreateUseableItem("champbelt", function(source, item)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	for k, v in pairs(QBCore.Functions.GetPlayers()) do
+		local PlayerPed = GetPlayerPed(source)
+		local TargetPed = GetPlayerPed(v)
+		local dist = #(GetEntityCoords(PlayerPed) - GetEntityCoords(TargetPed))
+		if dist < 15.0 then
+			local gender = "Man"
+			if item.info.gender == 1 then
+				gender = "Woman"
+			end
+			
+			TriggerClientEvent('chat:addMessage', v,  {
+				template = '<div class="chat-message system"><div class="chat-message-body"><strong>{0}</strong><br><br> <strong>First Name:</strong> {1} <br><strong>Last Name:</strong> {2} <br></div></div>',
+				args = {				
+					"Tequila-la Fight Night Champion",								
+					Player.PlayerData.charinfo.firstname,				
+					Player.PlayerData.charinfo.lastname,				
+				}				
+			}			
+		)
+		end
+	end
+end)
+
+QBCore.Functions.CreateUseableItem("hunting_license", function(source, item)
+	for k, v in pairs(QBCore.Functions.GetPlayers()) do
+		local PlayerPed = GetPlayerPed(source)
+		local TargetPed = GetPlayerPed(v)
+		local dist = #(GetEntityCoords(PlayerPed) - GetEntityCoords(TargetPed))
+		if dist < 3.0 then
+			local gender = "Man"
+			if item.info.gender == 1 then
+				gender = "Woman"
+			end
+			TriggerClientEvent('chat:addMessage', v,  {
+					template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>Civ ID:</strong> {1} <br><strong>First Name:</strong> {2} <br><strong>Last Name:</strong> {3} <br><strong>Birthdate:</strong> {4} <br><strong>Gender:</strong> {5} <br><strong>Nationality:</strong> {6}</div></div>',
+					args = {
+						"ID Card",
+						item.info.citizenid,
+						item.info.firstname,
+						item.info.lastname,
+						item.info.birthdate,
+						gender,
+						item.info.type
+					}
+				}
+			)
+		end
+	end
+end)
+
+QBCore.Functions.CreateUseableItem("boating_license", function(source, item)
+	for k, v in pairs(QBCore.Functions.GetPlayers()) do
+		local PlayerPed = GetPlayerPed(source)
+		local TargetPed = GetPlayerPed(v)
+		local dist = #(GetEntityCoords(PlayerPed) - GetEntityCoords(TargetPed))
+		if dist < 3.0 then
+			local gender = "Man"
+			if item.info.gender == 1 then
+				gender = "Woman"
+			end
+			TriggerClientEvent('chat:addMessage', v,  {
+					template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>Civ ID:</strong> {1} <br><strong>First Name:</strong> {2} <br><strong>Last Name:</strong> {3} <br><strong>Birthdate:</strong> {4} <br><strong>Gender:</strong> {5} <br><strong>Nationality:</strong> {6}</div></div>',
+					args = {
+						"ID Card",
+						item.info.citizenid,
+						item.info.firstname,
+						item.info.lastname,
+						item.info.birthdate,
+						gender,
+						item.info.type
+					}
+				}
+			)
+		end
+	end
+end)
+
+QBCore.Functions.CreateUseableItem("aircraft_license", function(source, item)
+	for k, v in pairs(QBCore.Functions.GetPlayers()) do
+		local PlayerPed = GetPlayerPed(source)
+		local TargetPed = GetPlayerPed(v)
+		local dist = #(GetEntityCoords(PlayerPed) - GetEntityCoords(TargetPed))
+		if dist < 3.0 then
+			local gender = "Man"
+			if item.info.gender == 1 then
+				gender = "Woman"
+			end
+			TriggerClientEvent('chat:addMessage', v,  {
+					template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>Civ ID:</strong> {1} <br><strong>First Name:</strong> {2} <br><strong>Last Name:</strong> {3} <br><strong>Birthdate:</strong> {4} <br><strong>Gender:</strong> {5} <br><strong>Nationality:</strong> {6}</div></div>',
+					args = {
+						"ID Card",
+						item.info.citizenid,
+						item.info.firstname,
+						item.info.lastname,
+						item.info.birthdate,
+						gender,
+						item.info.type
 					}
 				}
 			)

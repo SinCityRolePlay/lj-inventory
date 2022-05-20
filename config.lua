@@ -200,6 +200,21 @@ Config.CraftingItems = {
         threshold = 1750,
         points = 12,
     },
+    [13] = {
+        name = "decryptionkey",
+        amount = 2,
+        info = {},
+        costs = {
+            ["hax.exe_laptop"] = 1,
+            ["iphone"] = 3,
+            ["screwdriverset"] = 1,
+            ["copper"] = 4,
+        },
+        type = "item",
+        slot = 13,
+        threshold = 500,
+        points = 13,
+    }    
 }
 
 Config.AttachmentCraftingLocation = vector3(88.91, 3743.88, 40.77) -- Only needed if not using target
@@ -319,6 +334,96 @@ Config.AttachmentCrafting = {
             slot = 8,
             threshold = 200,
             points = 8,
+        },
+    }
+}
+
+Config.WeaponCrafting = {
+    ['location'] = vector3(3064.33, 2221.76, 3.1),
+    ["items"] = {
+        [1] = {
+            name = "weapon_combatpistol",
+            amount = 50,
+            info = {},
+            costs = {
+                ["metalscrap"] = 140,
+                ["steel"] = 250,
+                ["rubber"] = 60,
+            },
+            type = "item",
+            slot = 1,
+            threshold = 0,
+            points = 1,
+        },
+        [2] = {
+            name = "weapon_appistol",
+            amount = 50,
+            info = {},
+            costs = {
+                ["metalscrap"] = 165,
+                ["steel"] = 285,
+                ["rubber"] = 75,
+            },
+            type = "item",
+            slot = 2,
+            threshold = 10,
+            points = 2,
+        },
+        [3] = {
+            name = "weapon_heavypistol",
+            amount = 50,
+            info = {},
+            costs = {
+                ["metalscrap"] = 190,
+                ["steel"] = 305,
+                ["rubber"] = 85,
+            },
+            type = "item",
+            slot = 3,
+            threshold = 25,
+            points = 3,
+        },
+        [4] = {
+            name = "weapon_dbshotgun",
+            amount = 50,
+            info = {},
+            costs = {
+                ["metalscrap"] = 205,
+                ["steel"] = 340,
+                ["rubber"] = 110,
+            },
+            type = "item",
+            slot = 4,
+            threshold = 50,
+            points = 4,
+        },
+        [5] = {
+            name = "weapon_gusenberg",
+            amount = 50,
+            info = {},
+            costs = {
+                ["metalscrap"] = 230,
+                ["steel"] = 365,
+                ["rubber"] = 130,
+            },
+            type = "item",
+            slot = 5,
+            threshold = 75,
+            points = 5,
+        },
+        [6] = {
+            name = "weapon_smg",
+            amount = 50,
+            info = {},
+            costs = {
+                ["metalscrap"] = 255,
+                ["steel"] = 390,
+                ["rubber"] = 145,
+            },
+            type = "item",
+            slot = 6,
+            threshold = 100,
+            points = 6,
         },
     }
 }
