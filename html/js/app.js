@@ -498,6 +498,19 @@ function FormatItemInfo(itemData, dom) {
                 itemData.info.citizenid +
                 "</span></p>"
             );
+        } else if (itemData.name == "huntinglicense") {
+            $(".item-info-title").html("<p>" + itemData.label + "</p>");
+            $(".item-info-description").html(
+                "<p><strong>First Name: </strong><span>" +
+                itemData.info.firstname +
+                "</span></p><p><strong>Last Name: </strong><span>" +
+                itemData.info.lastname +
+                "</span></p><p><strong>Birth Date: </strong><span>" +
+                itemData.info.birthdate +
+                "</span></p><p><strong>Gender: </strong><span>" +
+                gender +
+                "</span></p>"
+            );
         } else if (itemData.name == "harness") {
             $(".item-info-title").html("<p>" + itemData.label + "</p>");
             $(".item-info-description").html(
